@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>receipes</title>
+</head>
+<body>
+<br>
+<h1><b>Add Receipes</b></h1>
+<br>
+<hr>
+<div class="container mt-5">
+<form class="col-6 max-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="mb-3" >
+    <label >Receipe Name</label>
+    <input name="receipe_name" type="text" class="form-control"  placeholder="Receipes Name" required>
+  </div>
+  <br>
+  <div  class="mb-3">
+    <label > Receipe Description</label>
+    <input name="receipe_description" type="text" class="form-control"  placeholder=" Receipe Description" required>
+  </div>
+  <br>
+  <div  class="mb-3">
+    <label>Receipe Image</label>
+    <input name="receipe_image" type="file" class="form-control" >
+  </div>
+  <br>
+  <button type="submit" class="btn btn-success">Add Receipe</button>
+</form>
+  </div>
+<br>
+<hr>
+
+<div class="mt-5">
+  <div class="mx-auto col-6">
+    <form>
+     <div  class="mb-3">
+    <label>Search Food</label>
+    <input name="search" type="text" class="form-control"  placeholder="Search">
+
+  </div>
+        <button Type="submit" class="btn btn-primary">search</button>
+</form>
+  </div>
+</div>
+
+
+<div>
+<table>
+  <tr><th scope="col">Receipe Name</th>
+    <th scope="col">Receipe Description</th>
+    <th scope="col">Receipe Image</th>
+    <th scope="col">Delete</th>
+    <th scope="col">Update</th>
+  </tr>
+    {% for Receipe in receipes %}
+  <tr>
+    <td>{{Receipe.receipe_name}}</td>
+    <td>{{Receipe.receipe_description}}</td>
+    <td>{{Receipe.receipe_image}}</td>
+    <td><a href="/vege/delete/{{Receipe.id}}/" class="btn btn-danger">
+       Delete
+     </a></td>
+    <td><a href="/vege/update/{{Receipe.id}}/" class="btn btn-primary">
+       Update
+     </a></td>
+  </tr>
+     {% endfor %}
+</table>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Dynamic Data</h2>
+
+<table>
+  <tr><th>Sr. No.</th>
+    <th>Name</th>
+    <th>Age</th>
+      <th>Can Vote</th>
+  </tr>
+    {% for people in peoples %}
+  <tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{people.name}}</td>
+    <td>{{people.age}}</td>
+      <td>
+          {% if people.age >= 18 %}
+          👍
+          {% else %}
+          👎
+          {%endif%}
+      </td>
+  </tr>
+     {% endfor %}
+</table>
+
+</body>
+</html>
+
