@@ -15,14 +15,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+
 from django.urls import path, include
 from home.views import *
-
+from vege.views import *
 
 urlpatterns = [
     path('', home, name="home"),
     path('admin/', admin.site.urls),
     path('success_page/', success_page),
     path('dynamicdata/', dynamicdata), # Directally Connect
-    path('vege/', include('vege.urls')) # next appUrl move
+    path('vege/', include('vege.urls')), # next appUrl move
+    path('login/', login_page, name="login_page"),
+    path('register/', register, name="register"),
+    path('logout/', logout_page, name="logout_page"),
 ]
