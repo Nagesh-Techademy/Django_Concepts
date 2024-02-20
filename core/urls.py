@@ -29,4 +29,5 @@ urlpatterns = [
     path('login/', login_page, name="login_page"),
     path('register/', register, name="register"),
     path('logout/', logout_page, name="logout_page"),
+    path('emailsend/', email_send), # Directally Connect
 ]

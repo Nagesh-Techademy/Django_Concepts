@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from django.http import HttpResponse
+from .utils import send_email_to_client
 # Create your views here.
 def home(request):
     return render(request, 'index.html' )
@@ -16,3 +17,7 @@ def dynamicdata(request):
         {'name': 'nop qrst', 'age': 89}
     ]
     return render(request, 'dynamicdata.html', context={'peoples' : peoples} )
+
+def email_send(request):
+    send_email_to_client()
+    return render(request, 'email.html')

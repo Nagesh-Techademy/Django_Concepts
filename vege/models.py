@@ -1,5 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
+
+
+# for Soft delete(is_deleted field)
+class ReceipeManager(models.Manager):
+    def get_queryset(self) :
+        return  super().get_queryset().filter(is_deleted=False)
+
+
 # Create your models here.
 class Receipe(models.Model):
     user =models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
@@ -8,6 +16,10 @@ class Receipe(models.Model):
     receipe_image= models.ImageField(upload_to="receipe")
     receipe_view_count=models.ImageField(default=1)
     is_deleted = models.BooleanField(default=False)
+
+    #for Soft Delete
+    objects=ReceipeManager()# it will remove deleted recors and show
+    admin_objects=models.Manager() # it will provide all details
 
 
 class Department(models.Model):
