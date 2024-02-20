@@ -7,6 +7,7 @@ class Receipe(models.Model):
     receipe_description= models.TextField()
     receipe_image= models.ImageField(upload_to="receipe")
     receipe_view_count=models.ImageField(default=1)
+    is_deleted = models.BooleanField(default=False)
 
 
 class Department(models.Model):
@@ -43,4 +44,5 @@ class Student(models.Model):
 
     class Meta:
         ordering =['student_name']
-        verbose_name="student" # alias the student_name
+        verbose_name="student"# alias the student_name
+      #  unique_together=['Student','Subject']

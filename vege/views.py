@@ -7,6 +7,10 @@ from django.contrib.auth.decorators import login_required #decorator
 #login is to mentain one session
 #authenticate is used to che password is matching or not in encrypted format
 
+# for Abstract User
+from django.contrib.auth import get_user_model
+User=get_user_model()
+
 # Create your views here.
 @login_required(login_url="/login/")
 def receipes(request):
@@ -16,6 +20,8 @@ def receipes(request):
         receipe_image = files.get('receipe_image')
         receipe_name= data.get('receipe_name')
         receipe_description= data.get('receipe_description')
+
+
 
         Receipe.objects.create(
             receipe_image= receipe_image,
