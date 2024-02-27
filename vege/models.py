@@ -2,10 +2,10 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-# for Soft delete(is_deleted field)
-class ReceipeManager(models.Manager):
-    def get_queryset(self) :
-        return  super().get_queryset().filter(is_deleted=False)
+# for Soft delete(is_deleted field) # written in th manager
+# class ReceipeManager(models.Manager):
+#     def get_queryset(self) :
+#         return  super().get_queryset().filter(is_deleted=False)
 
 
 # Create your models here.
@@ -18,7 +18,7 @@ class Receipe(models.Model):
     is_deleted = models.BooleanField(default=False)
 
     #for Soft Delete
-    objects=ReceipeManager()# it will remove deleted recors and show
+    # objects=ReceipeManager()# it will remove deleted recors and show
     admin_objects=models.Manager() # it will provide all details
 
 
