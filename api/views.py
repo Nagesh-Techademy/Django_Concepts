@@ -102,9 +102,6 @@ class StudentAPI(View):
         stu = Students.objects.all()
         serializer = StudentSerializer(stu, many=True)
         json_data = JSONRenderer().render(serializer.data)
-        # a=HttpResponse(json_data, content_type='application/json')  #For checking Purpose
-        # print(a.json)
-        # print('view')
         return HttpResponse(json_data, content_type='application/json')
 
 
@@ -118,7 +115,7 @@ class StudentAPI(View):
             res = {'msg': 'Data Created'}
             json_data = JSONRenderer().render(res)  # need to check this one for bracket
             return HttpResponse(json_data, content_type='application/json')
-        error_data = JSONRenderer.render(serializer.errors)  # If error Comes
+        error_data = JSONRenderer().render(serializer.errors)  # If error Comes
         return HttpResponse(error_data, content_type='application/json')
 
     def put(self, request, *args, **kwargs):
@@ -134,7 +131,7 @@ class StudentAPI(View):
             res = {'msg': 'Data Updated'}
             json_data = JSONRenderer().render(res)
             return HttpResponse(json_data, content_type='application/json')
-        error_data = JSONRenderer.render(serializer.errors)  # If error Comes
+        error_data = JSONRenderer().render(serializer.errors)  # If error Comes
         return HttpResponse(error_data, content_type='application/json')
 
     def delete(self, request, *args, **kwargs):
@@ -145,6 +142,8 @@ class StudentAPI(View):
         stu = Students.objects.get(id=id)
         stu.delete()
         res = {'msg': 'Data Deleted'}
+
+        #Single Line Code by using Jsonresponce
         # json_data=JSONRenderer().render(res)
         # return  HttpResponse(json_data, content_type='application/json')
 
