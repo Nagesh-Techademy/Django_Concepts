@@ -44,6 +44,7 @@ class StudentID(models.Model):
 #Foreignkey will be applyed on one to many field(Many relation one table)
 class Student(models.Model):
     #each student will have only one department
+
     department=models.ForeignKey(Department, related_name='depart', on_delete=models.CASCADE) #models.CASCADE, it means that when a Department instance is deleted, all associated Student instances will also be deleted automatically.
     student_id=models.OneToOneField(StudentID, related_name='studentid', on_delete=models.SET_NULL, null=True, blank=True)
     student_name=models.CharField(max_length=100)
