@@ -61,5 +61,4 @@ def delete_data():
     print(data)
 
 delete_data()
-#print('After')
-#get_data() #To check Updated Data
+
