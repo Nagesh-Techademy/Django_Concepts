@@ -7,6 +7,7 @@ def start_with_r(value):
         raise serializers.ValidationError('Name should be start with R')
 
 class StudentSerializer(serializers.Serializer):
+    id = serializers.IntegerField()               # To access ID Also
     name = serializers.CharField(max_length=100, validators=[start_with_r])
     roll = serializers.IntegerField()
     city = serializers.CharField(max_length=100)
@@ -38,3 +39,17 @@ class StudentSerializer(serializers.Serializer):
         if nm.lower()=='rohit' and ct.lower()!='ranchi':           # true false and operator
             raise serializers.ValidationError('City must be Ranchi')
         return data
+
+ #---------------------------------------------------------------------------------------------------------------------
+ #Model Serializer no need to write all fields
+class StudentSerializer(serializers.ModelSerializer):
+    #name=serializers.CharField(read_only=True) # for only one field
+    class Meta :
+        model= Students
+        fields=['name','roll','city']
+        #read_only_fields=['name', 'roll']  # for Multiple fields
+        fields='__all__'
+        exclude=['roll']
+        extra_kwargs={'name':{'read_only':True}} # also we can do this for read only field
+        #Validation will work as per the normal serializer
+

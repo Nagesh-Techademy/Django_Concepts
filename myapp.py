@@ -17,7 +17,7 @@ def get_data(id = None): #step 2
 
 #get_data(1)  #Step1
 #print('For all')
-#get_data()
+get_data()
 
 #POST-----------------------------------------------------------------------------------------------------
 def post_data():
@@ -31,7 +31,7 @@ def post_data():
     print(r)
     data = r.json()
     print(data)
-post_data()
+# post_data()
 
 
 def update_data():
