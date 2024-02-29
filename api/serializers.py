@@ -52,3 +52,4 @@ class StudentSerializer(serializers.ModelSerializer):
         exclude=['roll']
         extra_kwargs={'name':{'read_only':True}} # also we can do this for read only field
         #Validation will work as per the normal serializer
+
