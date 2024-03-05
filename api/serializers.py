@@ -41,15 +41,15 @@ class StudentSerializer(serializers.Serializer):
         return data
 
  #---------------------------------------------------------------------------------------------------------------------
- #Model Serializer no need to write all fields
-class StudentSerializer(serializers.ModelSerializer):
-    #name=serializers.CharField(read_only=True) # for only one field
-    class Meta :
-        model= Students
-        fields=['name','roll','city']
-        #read_only_fields=['name', 'roll']  # for Multiple fields
-        fields='__all__'
-        exclude=['roll']
-        extra_kwargs={'name':{'read_only':True}} # also we can do this for read only field
-        #Validation will work as per the normal serializer
-
+#  #Model Serializer no need to write all fields
+# class StudentSerializer(serializers.ModelSerializer):
+#     #name=serializers.CharField(read_only=True) # for only one field
+#     class Meta :
+#         model= Students
+#         fields=['name','roll','city']
+#         #read_only_fields=['name', 'roll']  # for Multiple fields
+#         fields='__all__'
+#         exclude=['roll']
+#         extra_kwargs={'name':{'read_only':True}} # also we can do this for read only field
+#         #Validation will work as per the normal serializer
+#

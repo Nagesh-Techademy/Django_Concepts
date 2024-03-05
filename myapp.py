@@ -15,9 +15,9 @@ def get_data(id = None): #step 2
     data= r.json()
     print(data)
 
-#get_data(1)  #Step1
+get_data(1)  #Step1
 #print('For all')
-get_data()
+#get_data()
 
 #POST-----------------------------------------------------------------------------------------------------
 def post_data():
