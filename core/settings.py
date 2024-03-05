@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'home',
     'vege',
     'api',
+    'viewset'
 ]
 
 MIDDLEWARE = [

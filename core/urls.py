@@ -27,6 +27,7 @@ urlpatterns = [
     path('dynamicdata/', dynamicdata), # Directally Connect
     path('vege/', include('vege.urls')), # next appUrl move
     path('api/', include('api.urls')), #Entire CURD Operation in DRF
+    path('viewset/', include('viewset.urls')),
     path('login/', login_page, name="login_page"),
     path('register/', register, name="register"),
     path('logout/', logout_page, name="logout_page"),
